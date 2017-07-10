@@ -58,7 +58,7 @@ module.exports = function(sails) {
             res.status(sails.config[self.configKey].status || 200);
 
             // If the "view" config was explicitly set to false, just show a JSON or text message.
-            if (sails.config[self.configKey].view === false) {
+            if (sails.config[self.configKey].view === false || res.wantsJSON) {
               if (sails.config[self.configKey].json_message) {
                 return res.json(sails.config[self.configKey].json_message);
               }
