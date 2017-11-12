@@ -36,9 +36,9 @@ backdoorOffParam    | ((string)) | _none_ | Parameter which can be used to re-in
 // [your-sails-app]/config/env/production.js
 module.exports = {
   'maintenance-mode': {
-    envVar: 'MAINTENANCE',
+    envVar: 'MAINTENANCE_MODE',
     view: false,
-    textMessage: "Site currently under maintenance, please try again later."
+    textMessage: "Site currently under maintenance, please try again later.",
     backdoorOnParam: 'open_sesame',
     backdoorOffParam: 'close_sesame',
     status: 200
@@ -46,3 +46,7 @@ module.exports = {
 };
 
 ```
+
+In order to bypass the mainteinance mode for a single session do a request like:
+`https://domain.com/?open_sesame=1`
+When done testing, do the same but use the backdoorOffParam instead. 
